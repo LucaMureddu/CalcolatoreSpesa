@@ -6,7 +6,7 @@
 
 ## 🚀 Live Demo
 
-* **Guarda il sito live:** [https://calcolatorespesa.netsons.org/](https://calcolatorespesa.netsons.org/)
+* **Guarda il sito live:** https://calcolatore-spesa.vercel.app/
 
 ## 🎯 Punti Chiave Tecnici & UX
 
