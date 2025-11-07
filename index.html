@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatore di Spesa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Modal di Benvenuto (Onboarding) -->
+    <div class="modal-overlay" id="welcome-modal">
+        <div class="modal-content">
+            <h2>Crea la Tua Lista</h2>
+            <p>Diamo un nome alla tua sessione di spesa per tenerla organizzata.</p>
+            <form id="start-form">
+                <div class="form-group">
+                    <label for="user-name">Il Tuo Nome</label>
+                    <input type="text" id="user-name" placeholder="Es. Luca" required>
+                </div>
+                <div class="form-group">
+                    <label for="list-title">Nome della Lista</label>
+                    <input type="text" id="list-title" placeholder="Es. Spesa Settimanale, Festa di Compleanno..." required>
+                </div>
+                <button type="submit" class="btn-primary">Inizia a Creare</button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-shopping-cart"></i> Calcolatore di Spesa</h1>
+            <p>Trova i tuoi prodotti e calcola il totale della spesa</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Colonna Sinistra: Ricerca Prodotti -->
+            <section class="search-section">
+                <div class="section-card">
+                    <h2><i class="fas fa-search"></i> Trova i tuoi prodotti</h2>
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Es. Latte, Pane, Uova..." autocomplete="off">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <div id="searchResults" class="search-results"></div>
+                </div>
+
+                <!-- Sezione Prodotto Personalizzato -->
+                <div class="section-card custom-product-section">
+                    <h2><i class="fas fa-plus-circle"></i> Aggiungi Prodotto Personalizzato</h2>
+                    <form id="customProductForm" class="custom-product-form">
+                        <div class="form-group">
+                            <label for="customProductName">Nome Prodotto</label>
+                            <input type="text" id="customProductName" placeholder="Es. Prodotto speciale..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customProductPrice">Prezzo (€)</label>
+                            <input type="number" id="customProductPrice" step="0.01" min="0.01" placeholder="0.00" required>
+                        </div>
+                        <button type="submit" class="custom-add-btn">
+                            <i class="fas fa-cart-plus"></i>
+                            Aggiungi al Carrello
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Colonna Destra: Carrello -->
+            <section class="cart-section">
+                <div class="section-card">
+                    <h2><i class="fas fa-shopping-basket"></i> La Tua Spesa</h2>
+                    <div id="cartItems" class="cart-items">
+                        <div class="empty-cart">
+                            <i class="fas fa-shopping-basket"></i>
+                            <p>Il tuo carrello è vuoto</p>
+                            <small>Cerca e aggiungi prodotti per iniziare</small>
+                        </div>
+                    </div>
+                    
+                    <div class="total-section">
+                        <h3>Totale Stimato</h3>
+                        <div id="totalPrice" class="total-price">€ 0,00</div>
+                        <div class="total-items">
+                            <span id="totalItems">0 articoli</span>
+                        </div>
+                        <button id="export-btn" class="btn-secondary">
+                            <i class="fas fa-file-download"></i> Esporta Lista
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="main.js" type="module"></script>
+</body>
+</html>
